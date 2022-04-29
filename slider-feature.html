@@ -1,0 +1,149 @@
+{% assign instanceName = buildPageFeatureData.slider %}
+{% assign siteFeatures = site.documents | where:'slider', instanceName %}
+
+
+
+  <div class='slider-container'>
+    <div class="max-width__tier-1 home-slider__pauseButton-wrapper"><button type="button" class="home-slider__pauseButton icon icon__pause--after" name="button" onclick="togglePauseSlider()"><span class='visuallyhidden'>pause</span></button></div>
+    <section class="home-slider max-width__tier-1" aria-label="Image Carousel">
+    {%- for feature-md in siteFeatures -%}
+ {%- if feature-md.display == true -%}
+ <div class="home-slider__slide ">
+  <picture class="home-slider__image ">
+    {%- if forloop.first == true -%}
+
+    {%- if feature-md.image-portrait == true -%}
+    <!--1st Slide-->
+      <!-- Portrait Settings --> 
+        <!-- ScreenSize minWidth 1200px -->
+          <!-- Avif image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI -->
+          <!-- Webp image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI -->
+          <!-- auto/default image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI -->
+        <!-- ScreenSize minWidth 750px | Repeats example above-->
+        <!-- ScreenSize minWidth 480px | Repeats example above-->
+        <!-- ScreenSize maxWidth 479.9px | Repeats example above-->
+        <!-- img fallback image and overall image standards "loading='eager' width='' height='' decode='async' style='blurred low file sized image for place holder on slow loads" -->
+  <!-- minWidth 1200px -->
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=1500&h=750&q=80&fm=avif&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=1500&h=750&q=80&fm=avif&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=1500&h=750&q=80&fm=avif&dpr=3&exp=-1 3x" media="(min-width:1200px)" type="image/avif">  
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=1500&h=750&q=80&fm=webp&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=1500&h=750&q=80&fm=webp&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=1500&h=750&q=80&fm=webp&dpr=3&exp=-1 3x" media="(min-width:1200px)" type="image/webp">  
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=1500&h=750&q=80&format=auto&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=1500&h=750&q=80&format=auto&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=1500&h=750&q=80&format=auto&dpr=3&exp=-1 3x" media="(min-width:1200px)">
+  <!-- minWidth 750px -->
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=1200&h=600&q=75&fm=avif&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=1200&h=600&q=75&fm=avif&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=1200&h=600&q=75&fm=avif&dpr=3&exp=-1 3x" media="(min-width:750px)" type="image/avif">
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=1200&h=600&q=75&fm=webp&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=1200&h=600&q=75&fm=webp&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=1200&h=600&q=75&fm=webp&dpr=3&exp=-1 3x" media="(min-width:750px)" type="image/webp">
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=1200&h=600&q=75&format=auto&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=1200&h=600&q=75&format=auto&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=1200&h=600&q=75&format=auto&dpr=3&exp=-1 3x" media="(min-width:750px)" >
+  <!-- minWidth 480px -->
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=750&h=375&q=70&fm=avif&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=750&h=375&q=70&fm=avif&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=750&h=375&q=70&fm=avif&dpr=3&exp=-1 3x" media="(min-width:480px)" type="image/avif">
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=750&h=375&q=70&fm=webp&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=750&h=375&q=70&fm=webp&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=750&h=375&q=70&fm=webp&dpr=3&exp=-1 3x" media="(min-width:480px)" type="image/webp">
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=750&h=375&q=70&format=auto&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=750&h=375&q=70&format=auto&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=750&h=375&q=70&format=auto&dpr=3&exp=-1 3x" media="(min-width:480px)" >
+  <!-- maxWidth 479.9px -->
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=200&h=112.50&q=70&fm=avif&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=200&h=112.50&q=70&fm=avif&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=200&h=112.50&q=70&fm=avif&dpr=3&exp=-1 3x" media="(max-width: 479.9px)" type="image/avif">
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=200&h=112.50&q=70&fm=webp&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=200&h=112.50&q=70&fm=webp&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=200&h=112.50&q=70&fm=webp&dpr=3&exp=-1 3x" media="(max-width: 479.9px)" type="image/webp">
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=200&h=112.50&q=70&format=auto&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=200&h=112.50&q=70&format=auto&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=200&h=112.50&q=70&format=auto&dpr=3&exp=-1 3x" media="(max-width: 479.9px)" >
+  <!-- img fallback and standard/native settings -->
+    <img src="{{feature-md.image}}?fit=fill&fill=blur&w=1500&h=750&q=70&format=auto&exp=-1" alt="{{ feature-md.alttext }}" width="1500" height="750" loading="eager" decode="async" style="background-image:url('{{feature-md.image}}?w=1500&ar=18:9&exp=-1&auto=compress&q=20&format=auto&blur=70&fit=crop');background-size: cover;"/>
+    {%- else -%}
+    <!--1st Slide-->
+      <!-- Landscape Settings -->
+        <!-- ScreenSize minWidth 1200px -->
+          <!-- Avif image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI -->
+          <!-- Webp image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI -->
+          <!-- auto/default image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI -->
+        <!-- ScreenSize minWidth 750px | Repeats example above-->
+        <!-- ScreenSize minWidth 480px | Repeats example above-->
+        <!-- ScreenSize maxWidth 479.9px | Repeats example above-->
+        <!-- img fallback image and overall image standards "loading='eager' width='' height='' decode='async' style='blurred low file sized image for place holder on slow loads" -->
+  <!-- minWidth 1200px -->
+    <source srcset="{{feature-md.image}}?w=1500&ar=18:9&fit=crop&q=80&fm=avif&dpr=1&exp=-1 1x, {{feature-md.image}}?w=1500&ar=18:9&fit=crop&q=80&fm=avif&dpr=2&exp=-1 2x, {{feature-md.image}}?w=1500&ar=18:9&fit=crop&q=80&fm=avif&dpr=3&exp=-1 3x" media="(min-width:1200px)" type="image/avif">  
+    <source srcset="{{feature-md.image}}?w=1500&ar=18:9&fit=crop&q=80&fm=webp&dpr=1&exp=-1 1x, {{feature-md.image}}?w=1500&ar=18:9&fit=crop&q=80&fm=webp&dpr=2&exp=-1 2x, {{feature-md.image}}?w=1500&ar=18:9&fit=crop&q=80&fm=webp&dpr=3&exp=-1 3x" media="(min-width:1200px)" type="image/webp">  
+    <source srcset="{{feature-md.image}}?w=1500&ar=18:9&fit=crop&q=80&format=auto&dpr=1&exp=-1 1x, {{feature-md.image}}?w=1500&ar=18:9&fit=crop&q=80&format=auto&dpr=2&exp=-1 2x, {{feature-md.image}}?w=1500&ar=18:9&fit=crop&q=80&format=auto&dpr=3&exp=-1 3x" media="(min-width:1200px)">
+  <!-- minWidth 750px -->
+    <source srcset="{{feature-md.image}}?w=1200&ar=18:9&fit=crop&fm=avif&q=75&dpr=1&exp=-1 1x, {{feature-md.image}}?w=1200&ar=18:9&fit=crop&fm=avif&q=75&dpr=2&exp=-1 2x, {{feature-md.image}}?w=1200&ar=18:9&fit=crop&fm=avif&q=75&dpr=3&exp=-1 3x" media="(min-width:750px)" type="image/avif">
+    <source srcset="{{feature-md.image}}?w=1200&ar=18:9&fit=crop&fm=webp&q=75&dpr=1&exp=-1 1x, {{feature-md.image}}?w=1200&ar=18:9&fit=crop&fm=webp&q=75&dpr=2&exp=-1 2x, {{feature-md.image}}?w=1200&ar=18:9&fit=crop&fm=webp&q=75&dpr=3&exp=-1 3x" media="(min-width:750px)" type="image/webp">
+    <source srcset="{{feature-md.image}}?w=1200&ar=18:9&fit=crop&format=auto&q=75&dpr=1&exp=-1 1x, {{feature-md.image}}?w=1200&ar=18:9&fit=crop&format=auto&q=75&dpr=2&exp=-1 2x, {{feature-md.image}}?w=1200&ar=18:9&fit=crop&format=auto&q=75&dpr=3&exp=-1 3x" media="(min-width:750px)" >
+  <!-- minWidth 480px -->
+    <source srcset="{{feature-md.image}}?w=750&ar=18:9&fit=crop&fm=avif&q=70&dpr=1&exp=-1 1x, {{feature-md.image}}?w=750&ar=18:9&fit=crop&fm=avif&q=70&dpr=2&exp=-1 2x, {{feature-md.image}}?w=750&ar=18:9&fit=crop&fm=avif&q=70&dpr=3&exp=-1 3x" media="(min-width:480px)" type="image/avif">
+    <source srcset="{{feature-md.image}}?w=750&ar=18:9&fit=crop&fm=webp&q=70&dpr=1&exp=-1 1x, {{feature-md.image}}?w=750&ar=18:9&fit=crop&fm=webp&q=70&dpr=2&exp=-1 2x, {{feature-md.image}}?w=750&ar=18:9&fit=crop&fm=webp&q=70&dpr=3&exp=-1 3x" media="(min-width:480px)" type="image/webp">
+    <source srcset="{{feature-md.image}}?w=750&ar=18:9&fit=crop&format=auto&q=70&dpr=1&exp=-1 1x, {{feature-md.image}}?w=750&ar=18:9&fit=crop&format=auto&q=70&dpr=2&exp=-1 2x, {{feature-md.image}}?w=750&ar=18:9&fit=crop&format=auto&q=70&dpr=3&exp=-1 3x" media="(min-width:480px)" >
+  <!-- maxWidth 479.9px -->
+    <source srcset="{{feature-md.image}}?w=200&ar=18:9&fit=crop&fm=avif&q=70&dpr=1&exp=-1 1x, {{feature-md.image}}?w=200&ar=18:9&fit=crop&fm=avif&q=70&dpr=2&exp=-1 2x, {{feature-md.image}}?w=200&ar=18:9&fit=crop&fm=avif&q=70&dpr=3&exp=-1 3x" media="(max-width: 479.9px)" type="image/avif">
+    <source srcset="{{feature-md.image}}?w=200&ar=18:9&fit=crop&fm=webp&q=70&dpr=1&exp=-1 1x, {{feature-md.image}}?w=200&ar=18:9&fit=crop&fm=webp&q=70&dpr=2&exp=-1 2x, {{feature-md.image}}?w=200&ar=18:9&fit=crop&fm=webp&q=70&dpr=3&exp=-1 3x" media="(max-width: 479.9px)" type="image/webp">
+    <source srcset="{{feature-md.image}}?w=200&ar=18:9&fit=crop&format=auto&q=70&dpr=1&exp=-1 1x, {{feature-md.image}}?w=200&ar=18:9&fit=crop&format=auto&q=70&dpr=2&exp=-1 2x, {{feature-md.image}}?w=200&ar=18:9&fit=crop&format=auto&q=70&dpr=3&exp=-1 3x" media="(max-width: 479.9px)" >
+  <!-- img fallback and standard/native settings -->
+    <img src="{{feature-md.image}}?w=1500&ar=18:9&fit=crop&q=70&format=auto&exp=-1" alt="{{ feature-md.alttext }}" width="1500" height="750" loading="eager" decode="async" style="background-image:url('{{feature-md.image}}?w=1500&ar=18:9&exp=-1&auto=compress&q=20&format=auto&blur=70&fit=crop');background-size: cover;"/>
+    {%- endif %}
+  
+  {%- else -%}
+  
+    {%- if feature-md.image-portrait == true -%}
+    <!-- Portrait Settings --> 
+      <!-- ScreenSize minWidth 1200px -->
+        <!-- Avif image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI -->
+        <!-- Webp image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI -->
+        <!-- auto/default image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI -->
+      <!-- ScreenSize minWidth 750px | Repeats example above-->
+      <!-- ScreenSize minWidth 480px | Repeats example above-->
+      <!-- ScreenSize maxWidth 479.9px | Repeats example above-->
+      <!-- img fallback image and overall image standards "width='' height='' decode='async'" -->
+  <!-- minWidth 1200px -->
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=1500&h=750&q=85&fm=avif&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=1500&h=750&q=85&fm=avif&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=1500&h=750&q=85&fm=avif&dpr=3&exp=-1 3x" media="(min-width:1200px)" type="image/avif">  
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=1500&h=750&q=85&fm=webp&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=1500&h=750&q=85&fm=webp&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=1500&h=750&q=85&fm=webp&dpr=3&exp=-1 3x" media="(min-width:1200px)" type="image/webp">  
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=1500&h=750&q=85&format=auto&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=1500&h=750&q=85&format=auto&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=1500&h=750&q=85&format=auto&dpr=3&exp=-1 3x" media="(min-width:1200px)">
+  <!-- minWidth 750px -->
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=1200&h=600&q=80&fm=avif&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=1200&h=600&q=80&fm=avif&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=1200&h=600&q=80&fm=avif&dpr=3&exp=-1 3x" media="(min-width:750px)" type="image/avif">
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=1200&h=600&q=80&fm=webp&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=1200&h=600&q=80&fm=webp&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=1200&h=600&q=80&fm=webp&dpr=3&exp=-1 3x" media="(min-width:750px)" type="image/webp">
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=1200&h=600&q=80&format=auto&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=1200&h=600&q=80&format=auto&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=1200&h=600&q=80&format=auto&dpr=3&exp=-1 3x" media="(min-width:750px)" >
+  <!-- minWidth 480px -->
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=750&h=375&q=75&fm=avif&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=750&h=375&q=75&fm=avif&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=750&h=375&q=75&fm=avif&dpr=3&exp=-1 3x" media="(min-width:480px)" type="image/avif">
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=750&h=375&q=75&fm=webp&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=750&h=375&q=75&fm=webp&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=750&h=375&q=75&fm=webp&dpr=3&exp=-1 3x" media="(min-width:480px)" type="image/webp">
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=750&h=375&q=75&format=auto&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=750&h=375&q=75&format=auto&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=750&h=375&q=75&format=auto&dpr=3&exp=-1 3x" media="(min-width:480px)" >
+  <!-- maxWidth 479.9px -->
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=200&h=112.50&q=75&fm=avif&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=200&h=112.50&q=90&fm=avif&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=200&h=112.50&q=90&fm=avif&dpr=3&exp=-1 3x" media="(max-width: 479.9px)" type="image/avif">
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=200&h=112.50&q=75&fm=webp&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=200&h=112.50&q=90&fm=webp&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=200&h=112.50&q=90&fm=webp&dpr=3&exp=-1 3x" media="(max-width: 479.9px)" type="image/webp">
+    <source srcset="{{feature-md.image}}?fit=fill&fill=blur&w=200&h=112.50&q=75&format=auto&dpr=1&exp=-1 1x, {{feature-md.image}}?fit=fill&fill=blur&w=200&h=112.50&q=90&format=auto&dpr=2&exp=-1 2x, {{feature-md.image}}?fit=fill&fill=blur&w=200&h=112.50&q=90&format=auto&dpr=3&exp=-1 3x" media="(max-width: 479.9px)" >
+  <!-- img fallback and standard/native settings -->
+    <img data-lazy="{{feature-md.image}}?fit=fill&fill=blur&w=1500&h=750&q=70&format=auto&exp=-1" alt="{{ feature-md.alttext }}" width="1500" height="750" decode="async"/>
+    {%- else -%}
+    <!-- Landscape Settings -->
+      <!-- ScreenSize minWidth 1200px -->
+        <!-- Avif image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI -->
+        <!-- Webp image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI -->
+        <!-- auto/default image -- url-params-1xDPI, url-params-2xDPI url-params-3xDPI -->
+      <!-- ScreenSize minWidth 750px | Repeats example above-->
+      <!-- ScreenSize minWidth 480px | Repeats example above-->
+      <!-- ScreenSize maxWidth 479.9px | Repeats example above-->
+      <!-- img fallback image and overall image standards "width='' height='' decode='async'" -->
+  <!-- minWidth 1200px -->
+    <source srcset="{{feature-md.image}}?w=1500&ar=18:9&fit=crop&q=85&fm=avif&dpr=1&exp=-1 1x, {{feature-md.image}}?w=1500&ar=18:9&fit=crop&q=85&fm=avif&dpr=2&exp=-1 2x, {{feature-md.image}}?w=1500&ar=18:9&fit=crop&q=85&fm=avif&dpr=3&exp=-1 3x" media="(min-width:1200px)" type="image/avif">  
+    <source srcset="{{feature-md.image}}?w=1500&ar=18:9&fit=crop&q=85&fm=webp&dpr=1&exp=-1 1x, {{feature-md.image}}?w=1500&ar=18:9&fit=crop&q=85&fm=webp&dpr=2&exp=-1 2x, {{feature-md.image}}?w=1500&ar=18:9&fit=crop&q=85&fm=webp&dpr=3&exp=-1 3x" media="(min-width:1200px)"type="image/webp">  
+    <source srcset="{{feature-md.image}}?w=1500&ar=18:9&fit=crop&q=85&format=auto&dpr=1&exp=-1 1x, {{feature-md.image}}?w=1500&ar=18:9&fit=crop&q=85&format=auto&dpr=2&exp=-1 2x, {{feature-md.image}}?w=1500&ar=18:9&fit=crop&q=85&format=auto&dpr=3&exp=-1 3x" media="(min-width:1200px)">
+  <!-- minWidth 750px -->
+    <source srcset="{{feature-md.image}}?w=1200&ar=18:9&fit=crop&fm=avif&q=80&dpr=1&exp=-1 1x, {{feature-md.image}}?w=1200&ar=18:9&fit=crop&fm=avif&q=80&dpr=2&exp=-1 2x, {{feature-md.image}}?w=1200&ar=18:9&fit=crop&fm=avif&q=80&dpr=3&exp=-1 3x" media="(min-width:750px)" type="image/avif">
+    <source srcset="{{feature-md.image}}?w=1200&ar=18:9&fit=crop&fm=webp&q=80&dpr=1&exp=-1 1x, {{feature-md.image}}?w=1200&ar=18:9&fit=crop&fm=webp&q=80&dpr=2&exp=-1 2x, {{feature-md.image}}?w=1200&ar=18:9&fit=crop&fm=webp&q=80&dpr=3&exp=-1 3x" media="(min-width:750px)" type="image/webp">
+    <source srcset="{{feature-md.image}}?w=1200&ar=18:9&fit=crop&format=auto&q=80&dpr=1&exp=-1 1x, {{feature-md.image}}?w=1200&ar=18:9&fit=crop&format=auto&q=80&dpr=2&exp=-1 2x, {{feature-md.image}}?w=1200&ar=18:9&fit=crop&format=auto&q=80&dpr=3&exp=-1 3x" media="(min-width:750px)" >
+  <!-- minWidth 480px -->
+    <source srcset="{{feature-md.image}}?w=750&ar=18:9&fit=crop&fm=avif&q=75&dpr=1&exp=-1 1x, {{feature-md.image}}?w=750&ar=18:9&fit=crop&fm=avif&q=75&dpr=2&exp=-1 2x, {{feature-md.image}}?w=750&ar=18:9&fit=crop&fm=avif&q=75&dpr=3&exp=-1 3x" media="(min-width:480px)" type="image/avif">
+    <source srcset="{{feature-md.image}}?w=750&ar=18:9&fit=crop&fm=webp&q=75&dpr=1&exp=-1 1x, {{feature-md.image}}?w=750&ar=18:9&fit=crop&fm=webp&q=75&dpr=2&exp=-1 2x, {{feature-md.image}}?w=750&ar=18:9&fit=crop&fm=webp&q=75&dpr=3&exp=-1 3x" media="(min-width:480px)" type="image/webp">
+    <source srcset="{{feature-md.image}}?w=750&ar=18:9&fit=crop&format=auto&q=75&dpr=1&exp=-1 1x, {{feature-md.image}}?w=750&ar=18:9&fit=crop&format=auto&q=75&dpr=2&exp=-1 2x, {{feature-md.image}}?w=750&ar=18:9&fit=crop&format=auto&q=75&dpr=3&exp=-1 3x" media="(min-width:480px)" >
+  <!-- maxWidth 479.9px -->
+    <source srcset="{{feature-md.image}}?w=200&ar=18:9&fit=crop&fm=avif&q=75&dpr=1&exp=-1 1x, {{feature-md.image}}?w=200&ar=18:9&fit=crop&fm=avif&q=75&dpr=2&exp=-1 2x, {{feature-md.image}}?w=200&ar=18:9&fit=crop&fm=avif&q=75&dpr=3&exp=-1 3x" media="(max-width: 479.9px)" type="image/avif">
+    <source srcset="{{feature-md.image}}?w=200&ar=18:9&fit=crop&fm=webp&q=75&dpr=1&exp=-1 1x, {{feature-md.image}}?w=200&ar=18:9&fit=crop&fm=webp&q=75&dpr=2&exp=-1 2x, {{feature-md.image}}?w=200&ar=18:9&fit=crop&fm=webp&q=75&dpr=3&exp=-1 3x" media="(max-width: 479.9px)" type="image/webp">
+    <source srcset="{{feature-md.image}}?w=200&ar=18:9&fit=crop&format=auto&q=75&dpr=1&exp=-1 1x, {{feature-md.image}}?w=200&ar=18:9&fit=crop&format=auto&q=75&dpr=2&exp=-1 2x, {{feature-md.image}}?w=200&ar=18:9&fit=crop&format=auto&q=75&dpr=3&exp=-1 3x" media="(max-width: 479.9px)" >
+  <!-- img fallback and standard/native settings -->
+    <img data-lazy="{{feature-md.image}}?w=1500&ar=18:9&fit=crop&q=70&format=auto&exp=-1" alt="{{ feature-md.alttext }}" width="1500" height="750" decode="async"/>
+    {%- endif %}
+  
+    {%- endif %}
+  </picture>
+  <div class="home-slider__text-box {%- if feature-md.visible == true -%}slider_link-active{%- endif %}">
+    <h2>{%- if feature-md.visible == true -%}<a href="{{ feature-md.link }} " {%- if feature-md.newtab == true -%} target="_blank" {%- endif %}>{%- endif %}{{ feature-md.title | truncatewords: 12 }}{%- if feature-md.visible == true -%}</a>{%- endif %}</h2>
+    <p>{{ feature-md.description | truncatewords: 30 }}</p>
+  </div>
+
+</div>
+ {%- endif %}
+    {%- endfor -%}
+  </section>
+  </div>
+  </div>
+
+{% include features/contentBlocks/slider/slick-js.html %}
