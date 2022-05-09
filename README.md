@@ -21,4 +21,6 @@ The template also notes which is the first image in the loop and separates it (a
 
 **Note:** I initially had native lazy loading on all subsequint images after the first image but I found this actually slowed everything down. Instead I stuck with defer='async' on all images other than the first and it made a substatial improvement.
 
+Here is a repository for the [whole template](https://github.com/Gruffel/Jekyll-Template#jekyll-template-work).
 
+If you would like to learn more here is [my portfolio website](https://turtonic.com).
