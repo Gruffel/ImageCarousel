@@ -19,7 +19,7 @@ The template also notes which is the first image in the loop and separates it (a
 - [Smashing Mag - Humble img](https://www.smashingmagazine.com/2021/04/humble-img-element-core-web-vitals/)
 
 
-**Note:** I initially had native lazy loading on all subsequint images after the first image but I found this actually slowed everything down. Instead I stuck with decode='async' on all images other than the first and it made a substatial improvement.
+**Note:** I initially had native lazy loading on all subsequint images after the first image but I found this actually slowed everything down. Instead I stuck with decode='async' on all images other than the first and it made a substantial improvement.
 
 Here is a repository for the [whole template](https://github.com/Gruffel/Jekyll-Template#jekyll-template-work).
 
